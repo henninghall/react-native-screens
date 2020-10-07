@@ -14,6 +14,10 @@ class SomeScreen extends React.Component {
           onPress={() => this.props.navigation.navigate('Modal')}
           title="Modal"
         />
+        <Button
+          onPress={() => this.props.navigation.navigate('TransparentModal')}
+          title="Transparent Modal"
+        />
         <Button onPress={() => this.props.navigation.pop()} title="Back" />
         <View style={styles.leftTop} />
         <View style={styles.bottomRight} />
@@ -39,6 +43,14 @@ class PushScreen extends React.Component {
         <Button
           onPress={() => this.props.navigation.push('Push')}
           title="Push more"
+        />
+        <Button
+          onPress={() => this.props.navigation.push('Modal')}
+          title="Modal"
+        />
+        <Button
+          onPress={() => this.props.navigation.push('TransparentModal')}
+          title="Transparent modal"
         />
         <View style={styles.leftTop} />
         <View style={styles.bottomRight} />
@@ -69,6 +81,11 @@ const App = () => (
       name="Modal"
       component={PushScreen}
       options={{ stackPresentation: 'modal' }}
+    />
+    <AppStack.Screen
+      name="TransparentModal"
+      component={PushScreen}
+      options={{ stackPresentation: 'transparentModal' }}
     />
   </AppStack.Navigator>
 );
